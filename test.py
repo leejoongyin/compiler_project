@@ -1,11 +1,12 @@
 from lex import *
 
 def main():
-    input = "LET foobar = 123"
+    input = "IF+-123 foo*THEN/"
     lexer = Lexer(input)
 
-    while lexer.peek() != '\0':
-        print(lexer.curChar)
-        lexer.nextChar()
+    token = lexer.getToken()
+    while token.kind != TokenType.EOF:
+        print(token.kind)
+        token = lexer.getToken()
 
 main()
